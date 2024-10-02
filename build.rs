@@ -3,7 +3,7 @@ extern crate winres;
 fn main() {
   if cfg!(target_os = "windows") {
     let mut res = winres::WindowsResource::new();
-    res.set_icon("./src/assets/hsarec.ico");
+    res.set_icon("./src/assets/yyzy.ico");
     res.set_manifest(
       r#"
     <assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0">
