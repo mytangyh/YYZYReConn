@@ -11,6 +11,9 @@ extern crate simplelog;
 use simplelog::*;
 use std::fs::File;
 
+// 添加这个常量来嵌入图标文件
+const ICON_DATA: &[u8] = include_bytes!("assets\\ico.ico");
+
 fn init_logging() -> Result<(), Box<dyn std::error::Error>> {
     CombinedLogger::init(vec![
         TermLogger::new(
@@ -50,6 +53,7 @@ fn create_systray() -> Result<Application, systray::Error> {
     info!("开始创建系统托盘菜单");
     
     let mut app = Application::new()?;
+    // 设置提示文字
     app.set_tooltip("YYZY重连工具")?;
     
     app.add_menu_item("开始拔线(Shift+Alt+R)", move |_| {
